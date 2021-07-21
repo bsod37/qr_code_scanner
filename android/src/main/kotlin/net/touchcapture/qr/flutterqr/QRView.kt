@@ -13,6 +13,7 @@ import com.google.zxing.ResultPoint
 import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.BarcodeView
+import com.journeyapps.barcodescanner.DefaultDecoderFactory
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -199,6 +200,7 @@ class QRView(messenger: BinaryMessenger, id: Int, private val params: HashMap<St
         } else {
             if (!isPaused) barcodeView!!.resume()
         }
+        barcodeView?.setDecoderFactory(DefaultDecoderFactory(null, null, null, 2))
         return barcodeView
     }
 
